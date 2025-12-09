@@ -15,7 +15,7 @@ try:
         datos = mi_socket.recv(512)
         if len(datos) < 1:
             break
-        print(datos.decode("utf-8"))
+        print(datos.decode())
 except Exception as e:
     print("No se ha podido establecer la conexión:", e)
 

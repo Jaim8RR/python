@@ -36,6 +36,24 @@ print("Despues de sort:", numeros)
 numeros = [5,3,8,1,4]
 print("Antes de sorted:", numeros)
 
+#funciones
+lista = [5,3,8,1,4]
+print("min:", min(lista))
+print("max:", max(lista))
+print("sum:", sum(lista))
+print("len:", len(lista))
+
+#Funciones listas-strings
+#split
+cadena = "Hola, que tal estas"
+lista = cadena.split()
+print(lista)
+lista = cadena.split(",")
+print(lista)
+lista = cadena.split("a")
+print(lista)
+
+
 
 
 
