@@ -16,9 +16,5 @@ try:
                     print("El numero de parametros es:", len(numero_de_parametros))
                 else: print("no hay parametros")
                 
-
-                
-
-
 except Exception as e:
     print(e)
