@@ -22,13 +22,11 @@ import os #para crear las carpetas
 #ruta de la api para un random
 url_api = "https://www.thecocktaildb.com/api/json/v1/1/random.php" # ek 1 despues de v1 es la key gratuita de desarrollador
 
-
-
 respuesta = urllib.request.urlopen(url_api)
 # Leo y decodifico a string para poder tratarlo como texto
 datos = respuesta.read().decode() 
 
-# --- PASO 3b: Parsear JSON ---
+
 # Convierto el string que ha llegado en un diccionario de Python
 # Referencia: json.loads() en json2.py
 diccionario_completo = json.loads(datos)
@@ -50,7 +48,8 @@ alcohol = cocktail["strAlcoholic"]
 instrucciones = cocktail["strInstructionsES"] if cocktail["strInstructionsES"] else cocktail["strInstructions"]
 
 
-# como son claves sueltas me hago yo una lista 
+# como son claves sueltas me hago yo una lista , es mentira me he hecho un string xd
+
 # Hago un bucle for del 1 al 16 para recorrerlos todos.
 texto_ingredientes = ""
 
@@ -87,7 +86,7 @@ if not os.path.exists("./cockteles"):
 nombre_archivo = id + " - " + nombre
 ruta_txt = "./cockteles/" + nombre_archivo + ".txt"
 
-# Abro en modo escritura ("w") y pongo utf-8 para que no fallen las tildes
+#abro fichero
 fichero_txt = open(ruta_txt, "w", encoding="utf-8")
 fichero_txt.write(resultado_final)#reutilizo lo del print
 fichero_txt.close()
