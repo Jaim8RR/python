@@ -27,7 +27,7 @@ respuesta = urllib.request.urlopen(url_api)
 datos = respuesta.read().decode() 
 
 
-# Convierto el string que ha llegado en un diccionario de Python
+# Convierto el string que ha llegado en un diccionario
 # Referencia: json.loads() en json2.py
 diccionario_completo = json.loads(datos)
 #print("Datos parseados de la API:" , diccionario_completo)
@@ -65,11 +65,11 @@ for i in range(1, 16):
         # A veces la medida viene None, lo cambio por cadena vacía para que no falle al sumar strings
         if medida is None:
             medida = ""
-        texto_ingredientes += " - " + ingrediente_actual + ": " + medida + "\n"
+        texto_ingredientes += "  " + ingrediente_actual + ": " + medida + "\n"
 
 # Monto el string final que voy a imprimir y guardar
-resultado_final = "ID: " + id + "\n"
-resultado_final += "Nombre: " + nombre + "\n"
+#resultado_final = "ID: " + id + "\n"
+resultado_final = "Nombre: " + nombre + "\n"
 resultado_final += "Categoria: " + categoria + " - " + alcohol + "\n"
 resultado_final += "vaso: " + vaso + "\n"
 resultado_final += "\nIngredientes:\n" + texto_ingredientes

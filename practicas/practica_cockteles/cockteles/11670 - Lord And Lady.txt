@@ -1,0 +1,10 @@
+Nombre: Lord And Lady
+Categoria: Ordinary Drink - Alcoholic
+vaso: Old-fashioned glass
+
+Ingredientes:
+  Dark rum: 1 1/2 oz 
+  Tia maria: 1/2 oz 
+
+Instrucciones:
+Vierta el ron y la Tía María en un vaso old-fashioned casi lleno de cubitos de hielo. Remuévalo bien.

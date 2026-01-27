@@ -1,0 +1,13 @@
+Nombre: Casino Royale
+Categoria: Ordinary Drink - Alcoholic
+vaso: Whiskey sour glass
+
+Ingredientes:
+  Gin: 2 oz 
+  Lemon juice: 1/2 oz 
+  Maraschino liqueur: 1 tsp 
+  Orange bitters: 1 dash 
+  Egg yolk: 1 
+
+Instrucciones:
+En una coctelera llena hasta la mitad con cubitos de hielo, mezcle todos los ingredientes. Agitar bien. Colar en un vaso sour.
