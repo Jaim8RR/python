@@ -5,12 +5,7 @@ import sqlite3
 
 
 def clean_number(value):
-    """
-    Cleans a string to extract the first numeric value.
-    Removes units like cc, hp, km/h, sec, $, commas.
-    Returns None if no number is found.
-    Implementation without regex.
-    """
+    
     if not value or value == 'N/A':
         return None
     
