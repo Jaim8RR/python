@@ -40,6 +40,7 @@ def cars_data(file_path):
     line_number = 0
     for line in csv:
         line_list = list()
+        
         if line_number != 0:
             current_field = ""
             inside_quotes = False
@@ -48,17 +49,18 @@ def cars_data(file_path):
                 if char == '"':
                     inside_quotes = not inside_quotes
                 elif char == ',' and not inside_quotes:
-                    line_list.append(current_field)
+                    print("Campo encontrado:", current_field)
+                    print("Campo limpio:", clean_number(current_field))
+                    line_list.append(clean_number(current_field))
                     current_field = ""
                 elif char == '\n':
-                    # End of line, don't append newline char to field
                     break
                 else:
                     current_field += char
             
-            # Append the last field after loop (if line didn't end with comma)
             
-            line_list.append(clean_number(current_field))
+            
+            
             
         line_number += 1    
 
