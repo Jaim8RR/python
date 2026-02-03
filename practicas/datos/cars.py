@@ -38,34 +38,39 @@ def cars_data(file_path):
 
     csv = open(csv_file,"r", encoding="cp1252")#utf8 XXXXX
     line_number = 0
+    line_list = list()
     for line in csv:
-        line_list = list()
+        
         
         if line_number != 0:
             current_field = ""
             inside_quotes = False
-            
+            field_number = 0
+            record = list()    
             for char in line:
                 if char == '"':
                     inside_quotes = not inside_quotes
                 elif char == ',' and not inside_quotes:
+                    # The fields that we want to clean are 3(2),4(3),5(4),6(5),7(6),8(7),11(10)
                     print("Campo encontrado:", current_field)
-                    print("Campo limpio:", clean_number(current_field))
-                    line_list.append(clean_number(current_field))
+                    if field_number in [2,3,4,5,6,7,10]:
+                        current_field = clean_number(current_field)
+                        print("Campo limpiado:", current_field)                    
+                    record.append(current_field)
                     current_field = ""
+                    field_number += 1
                 elif char == '\n':
                     break
                 else:
                     current_field += char
+        
             
-            
-            
-            
-            
-        line_number += 1    
+            line_list.append(record)
+        line_number += 1
+    print(f"Lista de coches({len(line_list)}):")
+    for record in line_list:
+        print("El coche: ",record,"\n")
 
-    
-    print("Linea numero",line_number,":" ,line_list)
     
     """
     try:
