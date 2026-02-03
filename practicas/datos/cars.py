@@ -38,23 +38,30 @@ def cars_data(file_path):
 
     csv = open(csv_file,"r", encoding="cp1252")#utf8 XXXXX
     line_number = 0
-    lina_aux = ""
     for line in csv:
-        line_aux = line
         line_list = list()
         if line_number != 0:
+            current_field = ""
+            inside_quotes = False
             
             for char in line:
-                if char != ",":#lo que hago es buscar las comas q separan los campos, todo lo anterior a la coma es un campo
-                    line_list.append(line[0:line.index(",")])
-                    line = line[line.index(",")+1:]#corto la linea para seguir buscando
-                else:
-                    line_list.append(line[0:line.index("\n")])#el ultimo campo no tiene coma, tiene salto de linea
+                if char == '"':
+                    inside_quotes = not inside_quotes
+                elif char == ',' and not inside_quotes:
+                    line_list.append(current_field)
+                    current_field = ""
+                elif char == '\n':
+                    # End of line, don't append newline char to field
                     break
-                if char == "'":#tengo que buscar el que lo cierra
-                    line_list.append(line[0:line.index("'",1)+1])
-                    line = line[line.index("'",1)+1:]#corto la linea para segui          
+                else:
+                    current_field += char
+            
+            # Append the last field after loop (if line didn't end with comma)
+            
+            line_list.append(clean_number(current_field))
+            
         line_number += 1    
+
     
     print("Linea numero",line_number,":" ,line_list)
     
